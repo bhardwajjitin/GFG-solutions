@@ -109,24 +109,6 @@ int main() {
 }
 
 // } Driver Code Ends
-
-
-/* A binary tree node has data, pointer to left child
-   and a pointer to right child  
-
-/*
-struct Node
-{
-    int data;
-    struct Node* left;
-    struct Node* right;
-    
-    Node(int x){
-        data = x;
-        left = right = NULL;
-    }
-};
-*/
 void printpre(vector<int>&ans,Node*root){
     //base case
     if(root==NULL){
@@ -139,7 +121,26 @@ void printpre(vector<int>&ans,Node*root){
 //Function to return a list containing the preorder traversal of the tree.
 vector <int> preorder(Node* root)
 {
-  vector<int>ans;
+  /*vector<int>ans;
   printpre(ans,root);
-  return ans;
+  return ans;*/
+ /*iterative method to preorder*/
+  vector<int>ans;
+  if(root==NULL){
+      return ans;
+  }
+  stack<Node*>st;
+ st.push(root);
+ while(!st.empty()){
+     root=st.top();
+     st.pop();
+     ans.push_back(root->data);
+     if(root->right!=NULL){
+         st.push(root->right);
+     }
+     if(root->left!=NULL){
+         st.push(root->left);
+     }
+ }
+ return ans;
 }
