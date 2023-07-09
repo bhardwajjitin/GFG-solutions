@@ -109,8 +109,8 @@ class Solution{
             pair<bool,int>p=make_pair(true,0);
             return p;
         }
-        pair<int,int>left=isBalancedFast(root->left);
-        pair<int,int>right=isBalancedFast(root->right);
+        pair<bool,int>left=isBalancedFast(root->left);
+        pair<bool,int>right=isBalancedFast(root->right);
         
         bool leftAns=left.first;
         bool rightAns=right.first;
